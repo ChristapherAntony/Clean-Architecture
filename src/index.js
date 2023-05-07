@@ -1,26 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import config from './config/config.js';
+import connection from './frameworks/database/mongodb/connection.js';
 
 const app = express()
 
 
 
 
-
-
-
-
-try {
-    await mongoose.connect(config.mongo.uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
-    console.log('MongoDB connected');
-} catch (error) {
-    console.log('MongoDB connection error:', error);
-}
-
+connection(mongoose, config).connectToMongo()
 
 
 app.listen(config.port, () => console.log(`Listening in port 3000`))
