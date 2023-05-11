@@ -1,15 +1,13 @@
 
 
 
-const serverConfig = (server, config) => {
+const serverConfig = (app, config) => {
     const startServer = () => {
-        server.listen(config.port, () => {
+        app.listen(config.port, () => {
             console.log(`Server listening on Port ${config.port}`);
         });
     };
-
     return { startServer };
-
 };
 
 export default serverConfig;
