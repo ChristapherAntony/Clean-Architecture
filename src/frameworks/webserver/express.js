@@ -4,6 +4,8 @@ import cors from 'cors'
 import mongoSanitize from 'express-mongo-sanitize'
 import helmet from "helmet";
 
+
+
 export default function expressConfig(app) {
 
     app.use(cors())
