@@ -1,10 +1,5 @@
 
 
-const findAll = async (categoryRepositoryInt) => {
-    
-    const categories = await categoryRepositoryInt.viewAllCategory()
-
-    return categories
-}
+const findAll = async (categoryRepositoryInt) => await categoryRepositoryInt.viewAllCategory()
 
 export default findAll;

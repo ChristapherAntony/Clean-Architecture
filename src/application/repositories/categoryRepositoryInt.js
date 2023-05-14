@@ -6,6 +6,8 @@ const categoryRepositoryInt = (repository) => {
 
     const findCategoryByName = (name) => repository.findCategoryByName(name)
 
+    const findCategoryById = (id) => repository.findCategoryById(id)
+
     const addNewCategory = (name) => repository.addNewCategory(name)
 
     const updateCategory = (id, name) => repository.updateCategory(id, name)
@@ -14,7 +16,14 @@ const categoryRepositoryInt = (repository) => {
 
     const findProductsByCategoryId = (id) => repository.viewAllProductsByCategory(id)
 
-    return { viewAllCategory, findCategoryByName, addNewCategory, updateCategory, deleteCategory, findProductsByCategoryId }
+    const addProductToCategory = (categoryId, productId) => repository.addProductToCategory(categoryId, productId)
+
+    const removeProductFromCategory = (categoryId, productId) => repository.removeProductFromCategory(categoryId, productId)
+
+    return {
+        viewAllCategory, findCategoryByName, addNewCategory, updateCategory, deleteCategory, findProductsByCategoryId,
+        findCategoryById, addProductToCategory, removeProductFromCategory
+    }
 }
 
 export default categoryRepositoryInt;
