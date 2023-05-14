@@ -20,8 +20,8 @@ const categoryRepositoryImpl = () => {
         return existingCategory
     }
 
-    const addNewCategory = async (name) => {
-        const category = new Category({ name });
+    const addNewCategory = async (categoryEntity) => {
+        const category = new Category(categoryEntity);
         const newCategory = await category.save();
         return newCategory
     }
