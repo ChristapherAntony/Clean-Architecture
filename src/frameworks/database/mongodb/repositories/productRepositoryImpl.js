@@ -2,8 +2,8 @@ import Product from "../models/product.js";
 
 const productRepositoryImpl = () => {
 
-    const addNewProduct = async (title, price, category) => {
-        const product = new Product({ title, price, category });
+    const addNewProduct = async (productEntity) => {
+        const product = new Product(productEntity);
         const newProduct = await product.save();
         return newProduct;
     };

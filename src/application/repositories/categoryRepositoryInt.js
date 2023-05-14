@@ -8,7 +8,11 @@ const categoryRepositoryInt = (repository) => {
 
     const findCategoryById = (id) => repository.findCategoryById(id)
 
-    const addNewCategory = (name) => repository.addNewCategory(name)
+    const addNewCategory = (categoryEntity) => {
+        console.log(categoryEntity.name,'from repo');
+
+        return repository.addNewCategory(categoryEntity)
+    }
 
     const updateCategory = (id, name) => repository.updateCategory(id, name)
 

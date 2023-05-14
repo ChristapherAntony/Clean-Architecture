@@ -6,8 +6,8 @@ const productRepositoryInt = (repository) => {
 
     const findProductByName = (name) => repository.findProductByName(name);
 
-    const addNewProduct = (title, price, category) =>
-        repository.addNewProduct(title, price, category);
+    const addNewProduct = (productEntity) =>
+        repository.addNewProduct(productEntity);
 
     const updateProductById = (id, title, price, category) =>
         repository.updateProductById(id, title, price, category);

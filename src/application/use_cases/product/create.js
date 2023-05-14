@@ -1,3 +1,4 @@
+import ProductEntity from "../../../entities/product.js";
 import { ERROR } from "../../../frameworks/webserver/middleware/HttpError.js";
 
 const addNewProduct = async (title, price, categoryId, productRepositoryInt, categoryRepositoryInt) => {
@@ -13,7 +14,8 @@ const addNewProduct = async (title, price, categoryId, productRepositoryInt, cat
         throw new ERROR.ProductExistsError(`Product with title exists`)
     }
     // create a new product
-    const newProduct = await productRepositoryInt.addNewProduct(title, price, categoryId);
+    const productEntity = new ProductEntity(title, price, categoryId)
+    const newProduct = await productRepositoryInt.addNewProduct(productEntity);
     //then i need to push the product id to the category to easy tract of products under that category
 
     await categoryRepositoryInt.addProductToCategory(categoryId, newProduct._id)
